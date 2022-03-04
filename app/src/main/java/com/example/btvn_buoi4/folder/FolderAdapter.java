@@ -72,15 +72,15 @@ public class FolderAdapter extends RecyclerView.Adapter {
                 AlertDialog.Builder diaLog = new AlertDialog.Builder(view.getContext());
                 diaLog.setMessage("Nhap ten folder moi");
 
-                View dialogCustomLayout = LayoutInflater.from(ctx).inflate(R.layout.dialog_custom_layout, null);
+                View dialogCustomLayout = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_custom_layout, null);
+
+                EditText etInput = (EditText) dialogCustomLayout.findViewById(R.id.edtInput);
 
                 diaLog.setView(dialogCustomLayout);
 
                 diaLog.setNegativeButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
-                        EditText etInput = (EditText) dialogCustomLayout.findViewById(R.id.edtInput);
 
                         String sNewFolderName = etInput.getText().toString();
 
