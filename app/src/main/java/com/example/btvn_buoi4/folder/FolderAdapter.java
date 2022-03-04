@@ -45,6 +45,15 @@ public class FolderAdapter extends RecyclerView.Adapter {
         return folderViewHolder;
     }
 
+    private boolean checkFolderNameIsIncorrect (String sNewFolderName) {
+        for (FolderModel folderModel : folderModelList) {
+            if (folderModel.getName().equals(sNewFolderName))
+                return true;
+        }
+
+        return false;
+    }
+
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         int index = position;
@@ -73,6 +82,9 @@ public class FolderAdapter extends RecyclerView.Adapter {
 
                         if (sNewFolderName.trim().equals("")) {
                             Toast.makeText(view.getContext(), "Ten folder khong duoc de trong", Toast.LENGTH_SHORT).show();
+                            return;
+                        } else if (checkFolderNameIsIncorrect(sNewFolderName)) {
+                            Toast.makeText(view.getContext(), "Ten folder khong duoc giong folder cu", Toast.LENGTH_SHORT).show();
                             return;
                         }
 
