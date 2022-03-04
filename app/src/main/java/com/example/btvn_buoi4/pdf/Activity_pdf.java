@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -49,17 +50,17 @@ public class Activity_pdf extends AppCompatActivity {
                 AlertDialog.Builder diaLog = new AlertDialog.Builder(view.getContext());
                 diaLog.setMessage("Nhap ten file moi");
 
-                final EditText etInput = new EditText(view.getContext());
+                //final EditText etInput = new EditText(view.getContext());
 
-                diaLog.setView(etInput);
+                View dialogCustomLayout = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_custom_layout, null);
 
-//                View dialogCustomLayout = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_custom_layout, null);
+                diaLog.setView(dialogCustomLayout);
 
                 diaLog.setNegativeButton("Lưu", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        //EditText etInput = (EditText) dialogCustomLayout.findViewById(R.id.edtInput);
+                        EditText etInput = (EditText) dialogCustomLayout.findViewById(R.id.edtInput);
 
                         String sNewFolderName = etInput.getText().toString();
 
