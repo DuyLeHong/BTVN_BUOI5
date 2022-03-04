@@ -26,16 +26,14 @@ public class Activity_folder extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folder);
 
         rcv_holder = findViewById(R.id.rcv_folder);
-        linearLayoutManager = new LinearLayoutManager(getApplication(),RecyclerView.VERTICAL,false);
-        adapter = new FolderAdapter(setListFolder());
+        linearLayoutManager = new LinearLayoutManager(getApplication(), RecyclerView.VERTICAL, false);
+        adapter = new FolderAdapter(setListFolder(), getApplicationContext());
 
         rcv_holder.setLayoutManager(linearLayoutManager);
         rcv_holder.setAdapter(adapter);
@@ -51,7 +49,7 @@ public class Activity_folder extends AppCompatActivity {
 
         toolbar.setNavigationIcon(R.drawable.icon_back);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
@@ -62,12 +60,12 @@ public class Activity_folder extends AppCompatActivity {
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.add_menu:
-                    folderModelList.add(new FolderModel("Folder" + index));
-                    adapter.notifyDataSetChanged();
-                    linearLayoutManager.scrollToPosition(folderModelList.size()-1);
-                    index++;
+                        folderModelList.add(new FolderModel("Folder" + index));
+                        adapter.notifyDataSetChanged();
+                        linearLayoutManager.scrollToPosition(folderModelList.size() - 1);
+                        index++;
                 }
                 return true;
 
