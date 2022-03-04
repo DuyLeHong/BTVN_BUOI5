@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="12dp"
+    app:strokeColor="@color/color_corner"
+    app:cardElevation="2dp"
+    app:strokeWidth="1dp"
+    android:layout_marginBottom="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+    >
+        <ImageView
+            android:id="@+id/img_pdf"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon_pdf"
+            />
+
+        <TextView
+            android:id="@+id/tv_name_pdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img_pdf"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10dp"
+            android:textSize="18dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_dot_vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            />
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

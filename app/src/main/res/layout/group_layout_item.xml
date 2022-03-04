@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="6dp">
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:cardCornerRadius="12dp"
+       android:layout_margin="5dp"
+      >
+       <ImageView
+           android:id="@+id/img_group"
+           android:layout_width="80dp"
+           android:layout_height="80dp"
+           android:src="@drawable/eat_clean"
+           android:scaleType="centerCrop"
+           />
+   </androidx.cardview.widget.CardView>
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="15dp"
+      android:layout_gravity="center_vertical">
+
+      <TextView
+          android:id="@+id/tv_name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="3dp"
+          android:text="Mua bán có tâm"
+          android:textColor="@color/black"
+          android:textSize="16dp" />
+      <TextView
+          android:id="@+id/tv_qty_folow"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/tv_name"
+          android:text="8k fan"
+          android:textSize="16dp"
+          android:textColor="@color/black"
+          android:padding="3dp"
+          />
+
+      <TextView
+          android:id="@+id/tv_qty_post"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/tv_name"
+          android:layout_marginStart="5dp"
+          android:layout_toRightOf="@+id/tv_qty_folow"
+          android:padding="3dp"
+          android:text="+10 bài viết mới nhất"
+          android:textColor="@color/grey"
+          android:textSize="16dp" />
+
+      <TextView
+          android:id="@+id/tv_status"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/tv_qty_folow"
+          android:padding="3dp"
+          android:textAllCaps="true"
+          android:text="NHÓM ĐÓNG"
+          android:textColor="@color/grey"
+          android:textSize="14dp"
+
+          />
+
+
+  </RelativeLayout>
+
+</LinearLayout>
