@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:paddingStart="10dp"
     android:paddingEnd="10dp"
+    android:id="@+id/item_recylerview"
     >
 
     <ImageView
@@ -26,8 +27,9 @@
 
     <ImageView
         android:id="@+id/img_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
         android:layout_centerVertical="true"
         android:layout_gravity="center_vertical"
         android:layout_marginEnd="10dp"
@@ -36,8 +38,9 @@
 
     <ImageView
         android:id="@+id/img_delete"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:src="@drawable/icon_cancel" />

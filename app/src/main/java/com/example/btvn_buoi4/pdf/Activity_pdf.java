@@ -50,8 +50,6 @@ public class Activity_pdf extends AppCompatActivity {
                 AlertDialog.Builder diaLog = new AlertDialog.Builder(view.getContext());
                 diaLog.setMessage("Nhap ten file moi");
 
-                //final EditText etInput = new EditText(view.getContext());
-
                 View dialogCustomLayout = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_custom_layout, null);
 
                 diaLog.setView(dialogCustomLayout);

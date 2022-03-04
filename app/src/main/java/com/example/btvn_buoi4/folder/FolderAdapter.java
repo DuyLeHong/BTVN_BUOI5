@@ -25,15 +25,12 @@ import java.util.List;
 public class FolderAdapter extends RecyclerView.Adapter {
 
     private List<FolderModel> folderModelList;
-//    private View dialogCustomLayout;
-//    EditText etInput;
+    private Context ctx;
 
-    public FolderAdapter(List<FolderModel> folderModelList, Context ctx) {
+    public FolderAdapter(List<FolderModel> folderModelList, Context _ctx) {
         this.folderModelList = folderModelList;
 
-//        dialogCustomLayout = LayoutInflater.from(ctx).inflate(R.layout.dialog_custom_layout, null);
-//
-//        etInput = (EditText) dialogCustomLayout.findViewById(R.id.edtInput);
+        ctx = _ctx;
     }
 
     @NonNull
@@ -60,23 +57,30 @@ public class FolderAdapter extends RecyclerView.Adapter {
         FolderModel folderModel = folderModelList.get(position);
         ((FolderViewHolder) holder).tv_name.setText(folderModel.getName());
 
+
+        ((FolderViewHolder) holder).item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Click vao folder: " + folderModel.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         ((FolderViewHolder) holder).img_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder diaLog = new AlertDialog.Builder(view.getContext());
                 diaLog.setMessage("Nhap ten folder moi");
 
-                final EditText etInput = new EditText(view.getContext());
+                View dialogCustomLayout = LayoutInflater.from(ctx).inflate(R.layout.dialog_custom_layout, null);
 
-                diaLog.setView(etInput);
-
-//                View dialogCustomLayout = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_custom_layout, null);
+                diaLog.setView(dialogCustomLayout);
 
                 diaLog.setNegativeButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        //EditText etInput = (EditText) dialogCustomLayout.findViewById(R.id.edtInput);
+                        EditText etInput = (EditText) dialogCustomLayout.findViewById(R.id.edtInput);
 
                         String sNewFolderName = etInput.getText().toString();
 
@@ -137,12 +141,15 @@ public class FolderAdapter extends RecyclerView.Adapter {
     public class FolderViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_name;
         private ImageView img_delete, img_edit;
+        private View item;
 
         public FolderViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_name = itemView.findViewById(R.id.tv_name);
             img_delete = itemView.findViewById(R.id.img_delete);
             img_edit = itemView.findViewById(R.id.img_edit);
+            item = itemView.findViewById(R.id.item_recylerview);
+
         }
     }
 }
